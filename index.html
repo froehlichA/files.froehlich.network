@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body id="log">
-    <div class="card main">
-        <input id="file" type="file" />
+    <h1 class="main autowidth">FILES</h1>
+    <div class="card bb">
+        <input id="file" type="file" multiple/>
         <button id="submit">Upload</button>
     </div>
 </body>
@@ -33,6 +34,7 @@
     function createTracker(file) {
         const div = document.createElement('div');
         div.classList.add('card');
+        div.classList.add('center');
 
         const info = document.createElement('span');
         info.innerText = file.name;
