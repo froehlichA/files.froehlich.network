@@ -23,6 +23,7 @@
         console.log('Retrieving...');
         for await (const chunk of ipfs.cat(path)) {
             content.push(chunk);
+            console.log('Push!');
         }
         const blob = new Blob(content, { type });
         console.log('Creating link..');
