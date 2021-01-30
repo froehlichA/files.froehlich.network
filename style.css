@@ -29,8 +29,15 @@ html, body {
     margin-right: 16px;
 }
 
-.content.main {
+.main {
     margin-top: 100px;
     margin-bottom: 32px;
+}
+
+.b-left {
     border-left: 6px solid black;
+}
+
+.ta-center {
+    text-align: center;
 }
