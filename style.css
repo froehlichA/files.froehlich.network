@@ -1,0 +1,36 @@
+html, body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(243, 243, 243);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: max(50%, 260px);
+    margin: auto;
+    margin-top: 16px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.content > input {
+    flex: 1 0 auto;
+    margin-right: 32px;
+}
+
+.content > button {
+    margin-right: 16px;
+}
+
+.content.main {
+    margin-top: 100px;
+    margin-bottom: 32px;
+    border-left: 6px solid black;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fileline Download</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', async function (evt) {
+        const ipfs = await Ipfs.create();
+        const urlParams = new URLSearchParams(window.location.search);
+        const path = urlParams.get('path');
+        const name = urlParams.get('name');
+        const type = urlParams.get('type');
+    
+        const content = [];
+        for await (const chunk of ipfs.cat(path)) {
+            content.push(chunk);
+        }
+        const blob = new Blob(content, { type });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+    });
+</script>
+</html>
