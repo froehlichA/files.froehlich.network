@@ -21,7 +21,7 @@
         const content = [];
         let url;
         try {
-            for await (const chunk of ipfs.cat(path, { timeout: 3000 })) {
+            for await (const chunk of ipfs.cat(path, { timeout: 10000 })) {
                 content.push(chunk);
             }
             const blob = new Blob(content, { type });
