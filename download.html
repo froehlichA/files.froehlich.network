@@ -19,11 +19,17 @@
         const type = urlParams.get('type');
     
         const content = [];
-        for await (const chunk of ipfs.cat(path, { timeout: 3000 })) {
-            content.push(chunk);
+        let url;
+        try {
+            for await (const chunk of ipfs.cat(path, { timeout: 3000 })) {
+                content.push(chunk);
+            }
+            const blob = new Blob(content, { type });
+            url = window.URL.createObjectURL(blob);
         }
-        const blob = new Blob(content, { type });
-        const url = window.URL.createObjectURL(blob);
+        catch (ex) {
+            url = `https://ipfs.io/ipfs/${path}`;
+        }
         const a = document.createElement('a');
         a.style.display = 'none';
         a.href = url;
