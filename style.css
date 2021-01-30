@@ -7,26 +7,22 @@ html, body {
     box-sizing: border-box;
 }
 
-.content {
+.card {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: max(50%, 260px);
     margin: auto;
     margin-top: 16px;
-    padding: 20px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
-.content > input {
-    flex: 1 0 auto;
-    margin-right: 32px;
-}
-
-.content > button {
-    margin-right: 16px;
+.card > * {
+    flex: 0 1 auto;
+    margin: 16px;
 }
 
 .main {
@@ -34,8 +30,24 @@ html, body {
     margin-bottom: 32px;
 }
 
-.b-left {
-    border-left: 6px solid black;
+.card > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card > .link {
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.card > .link > button {
+    flex: 0 1 auto;
+    height: 34px;
+}
+
+.card > .link > input {
+    flex: 1 1 auto;
+    height: 34px;
 }
 
 .ta-center {
