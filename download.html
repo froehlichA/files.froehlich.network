@@ -12,7 +12,6 @@
 <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async function (evt) {
-        console.log('Creating...');
         const ipfs = await Ipfs.create();
         const urlParams = new URLSearchParams(window.location.search);
         const path = urlParams.get('path');
@@ -20,13 +19,10 @@
         const type = urlParams.get('type');
     
         const content = [];
-        console.log('Retrieving...');
-        for await (const chunk of ipfs.cat(path)) {
+        for await (const chunk of ipfs.cat(path, { timeout: 3000 })) {
             content.push(chunk);
-            console.log('Push!');
         }
         const blob = new Blob(content, { type });
-        console.log('Creating link..');
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.style.display = 'none';
