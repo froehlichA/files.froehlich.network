@@ -15,7 +15,7 @@
         const ipfs = await Ipfs.create();
         const urlParams = new URLSearchParams(window.location.search);
         const path = urlParams.get('path');
-        const name = urlParams.get('name');
+        const name = urlParams.get('name').replace(" ", "-");
         const type = urlParams.get('type');
     
         const content = [];
